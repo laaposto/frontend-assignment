@@ -3,7 +3,7 @@ Assignment for Front-End position.
 
 The goal of this assignment is to create a webpage that will help users investigate if an image is manipulated (deepfake) or not.
 
-To complete the assignment, you will need to create a user interface that allows end-users to input an image URL and get the analysis results received from a back-end service.
+To complete the assignment, you will need to create a user interface that allows end-users to input an image URL and inspect the analysis results received from a back-end service.
 
 The back-end service is already implemented and you must use it to build the front-end.
 
@@ -13,7 +13,7 @@ You must:
 2.  Create an event listener that triggers the fetch of the image analysis results from the back-end service
 3.  Display the analysis results in an appropriate format
 
-You can use any front-end framework and technologies you are familiar with.
+You can use any front-end technologies (framework, library etc.) you are familiar with.
 
 The back-end service offers the following endpoints:
 
