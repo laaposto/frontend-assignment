@@ -92,8 +92,7 @@ To get the image analysis results from the back-end service you should follow th
 Parse the response and display to user the values of:
 
 - `message` : Informative message for the analysis of the image
-- `prediction` : Probability score for the image to be deepfake (0-1)
-- `synthetic_prediction` : Probability score for the image to be gan-generated (0-1)
+- `prediction` and `synthetic_prediction`: Both prediction and synthetic_prediction indicate probabilities of the image being AI generated, but the first refers to face swapping techniques and the second to full synthesis (the so called GAN models). The interface should present both probabilities in the form of percentages and explain the differences to the end user in a clear way
 - `prediction_time` : Analysis time in seconds
 - `result` : Classification of input image ("REAL" or "FAKE")
 
