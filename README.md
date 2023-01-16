@@ -3,11 +3,16 @@ Assignment for Front-End position.
 
 The goal of this assignment is to create a webpage that will help users investigate if an image is manipulated (deepfake) or not.
 
+A deepfake image is a manipulated image that has been created using machine learning techniques. These techniques can be used to generate images of a person that are highly realistic, but not authentic. Deepfakes are commonly used to replace the face of a person with that of another person or to change the appearance of the face in some way.
+Deepfakes are used to create malicious fake images that are intended to deceive or harm others.
+
+Deepfake detection is the process of identifying and detecting deepfake images by analyzing them to discover inconsistencies or signs of manipulation (e.g. manipulation in the pixels or compression artifacts). The output of deepfake detection can include information, such as bounding boxes that highlight the regions of the image the analysis predicts to be synthetic. The prediction is often represented with a probability or a confidence score.
+
 To complete the assignment, you will need to create a user interface that allows end-users to input an image URL and inspect the analysis results received from a back-end service.
 
-The back-end service is already implemented and you must use it to build the front-end.
+The back-end service is already implemented and you should use it to build the front-end.
 
-You must:
+You should:
 
 1.  Create a form where the user can enter the image URL
 2.  Create an event listener that triggers the fetch of the image analysis results from the back-end service
@@ -72,7 +77,7 @@ The back-end service offers the following endpoints:
 ```
 The API is served from the following URL: https://mever.iti.gr/deepfake/api/v3/images
 
-To get the image analysis results from the back-end service you must follow the workflow presented below:
+To get the image analysis results from the back-end service you should follow the workflow presented below:
 
 - Call `/jobs?url={image_url}` passing the image URL from the UI form as a parameter.
   Example : `/jobs?url=https://mever.iti.gr/deepfake/imgs/image1.jpg`
@@ -84,9 +89,15 @@ To get the image analysis results from the back-end service you must follow the 
 - Call `/reports/{job_id}` with the `json.id` you received from the first call.
   Example : `/reports/23d9c543-500e-4d9c-a445-7c03970e8f93`
 
-Parse the response and display the values of `message`, `prediction`, `synthetic_prediction`, `prediction_time`, and `result` to the user.
+Parse the response and display to user the values of:
 
-Moreover, the `info` array holds information any areas in the submitted image that might be manipulated. Each entry in the array is a bounding box with a `prediction` score. The bounding box coordinates are presented in relative position (in percentage) regarding the dimensions of the sumbitted image The top left corner of the bouding box is extracted from `bbox.top` and  `bbox.left` while the bottom right corner from `bbox.bottom` and `bbox.right`
+- `message` : Informative message for the analysis of the image
+- `prediction` : Probability score for the image to be deepfake (0-1)
+- `synthetic_prediction` : Probability score for the image to be gan-generated (0-1)
+- `prediction_time` : Analysis time in seconds
+- `result` : Classification of input image ("REAL" or "FAKE")
+
+Moreover, the `info` array holds information for any areas in the submitted image that might be manipulated. Each entry in the array is a bounding box with a `prediction` score. The bounding box coordinates are presented in relative position (in percentage) regarding the dimensions of the sumbitted image The top left corner of the bouding box is extracted from `bbox.top` and  `bbox.left` while the bottom right corner from `bbox.bottom` and `bbox.right`
 
 Example on an 400x800 image with the following analysis result.
 ```json
