@@ -75,10 +75,10 @@ The API is served from the following URL: https://mever.iti.gr/deepfake/api/v3/i
 To get the image analysis results from the back-end service you must follow the workflow presented below:
 
 - Call `/jobs?url={image_url}` passing the image URL from the UI form as a parameter.
-  Example : `/josbs?url=https://mever.iti.gr/deepfake/imgs/image1.jpg`
+  Example : `/jobs?url=https://mever.iti.gr/deepfake/imgs/image1.jpg`
 
 - Call `/jobs/{job_id}` with the `json.id` you received from the previous call
-  Example : `/josbs/23d9c543-500e-4d9c-a445-7c03970e8f93`
+  Example : `/jobs/23d9c543-500e-4d9c-a445-7c03970e8f93`
   Check the `status` field of the response. If the status is `"PROCESSING"`, wait 1 second and call the endpoint again. Repeat this step until the status is `"COMPLETED"`.
 
 - Call `/reports/{job_id}` with the `json.id` you received from the first call.
